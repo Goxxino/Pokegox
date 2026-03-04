@@ -38,58 +38,8 @@ body::before {
     content: "";
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(-45deg, #050505, #1a1a1a, #0f172a, #1c1c1c);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(to bottom, #050505, #1a1a1a);
     z-index: -2;
-}
-
-/* Scanlines Retro (CRT Effect) */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-    background-size: 100% 3px, 3px 100%;
-    pointer-events: none;
-    z-index: 1000;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.bg-blobs {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.blob {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: var(--color-secondary);
-    filter: blur(80px);
-    border-radius: 50%;
-    opacity: 0.2;
-    animation: move 20s infinite alternate;
-}
-
-.color-2 {
-    background: var(--accent-color);
-    right: -100px;
-    bottom: -100px;
-    animation-delay: -5s;
-}
-
-@keyframes move {
-    from { transform: translate(0, 0); }
-    to { transform: translate(100px, 200px); }
 }
 
 h1 {
@@ -196,7 +146,6 @@ h1 {
     display: block;
     margin: 0 auto 20px;
     filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
-    -webkit-box-reflect: below -10px linear-gradient(transparent, rgba(255,255,255,0.1)); /* Riflesso a specchio */
 }
 
 .types-container {
