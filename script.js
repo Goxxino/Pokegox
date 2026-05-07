@@ -89,6 +89,7 @@ const getChartOptions = (nature) => {
 // Funzione generica per disegnare il grafico
 const drawChart = (elementId, data, color, nature) => {
     const canvas = document.getElementById(elementId);
+    if (!canvas) return; // Protezione in caso il grafico non esista sulla pagina corrente
     const existingChart = Chart.getChart(canvas);
     if (existingChart) existingChart.destroy();
 
@@ -111,6 +112,7 @@ const drawChart = (elementId, data, color, nature) => {
 // Render IV/EV statistics as HTML grid table
 const renderStatsTable = (containerId, { ivs, evs }, color) => {
     const container = document.getElementById(containerId);
+    if (!container) return; // Protezione per le altre pagine
     
     const gridHTML = `
         <div class="stats-grid">
@@ -184,4 +186,14 @@ document.body.addEventListener('click', (e) => {
 // Chiusura con tasto Esc
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+});
+
+// --- GESTIONE NAVBAR (Scomparsa allo scroll) ---
+const navBar = document.querySelector('.main-nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 250) {
+        navBar.classList.add('hidden-nav');
+    } else {
+        navBar.classList.remove('hidden-nav');
+    }
 });

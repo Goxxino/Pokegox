@@ -29,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
+    padding: 20px 20px 40px;
     margin: 0;
 }
 
@@ -40,6 +40,87 @@ body::before {
     top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(to bottom, #050505, #1a1a1a);
     z-index: -2;
+}
+
+/* --- NAV BAR --- */
+.main-nav {
+    position: sticky;
+    top: 20px;
+    width: 100%;
+    max-width: 1100px;
+    background: var(--bg-card);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-light);
+    border-radius: 30px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Classe aggiunta dinamicamente con JS per nascondere la barra */
+.main-nav.hidden-nav {
+    opacity: 0;
+    transform: translateY(-150%);
+    pointer-events: none;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-pixel);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px var(--accent-glow);
+}
+
+.nav-logo img {
+    height: 24px;
+    image-rendering: pixelated;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+    text-shadow: 0 0 8px var(--accent-glow-strong);
+}
+
+/* Menu Responsive per Smartphone */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+        border-radius: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
 }
 
 h1 {
@@ -73,10 +154,6 @@ h1 {
     margin: 40px 0 20px;
     text-shadow: 0 0 6px var(--accent-glow); /* Glow più stretto */
     font-size: 1.5rem;
-}
-
-.intro-text p {
-    margin: 0;
 }
 
 .trainer-sprite {
@@ -127,6 +204,10 @@ h1 {
 .card.type-steel  { --type-color: #b8b8d0; }
 .card.type-dragon { --type-color: #7038f8; }
 .card.type-rock   { --type-color: #b8a038; }
+.card.type-grass  { --type-color: #78c850; }
+.card.type-bug    { --type-color: #a8b820; }
+.card.type-normal { --type-color: #a8a878; }
+.card.type-fire   { --type-color: #f08030; }
 
 /* Sfondo sfumato leggero dietro la card */
 .card::before {

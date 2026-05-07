@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goxxino | Utilities</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0/dist/chartjs-plugin-datalabels.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-logo">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="Logo">
+            <span>GOXXINO</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Il Mio Team</a></li>
+            <li><a href="palmer.html">Farm BP</a></li>
+            <li><a href="slaves.html">Pokémon Slave</a></li>
+            <li><a href="utilities.html" class="active">Utilities</a></li>
+        </ul>
+    </nav>
+
+    <h1>POKÉMON UTILITIES</h1>
+    
+    <div class="intro-text">
+        <p><strong>Butterfree</strong> grazie all'abilità Insettocchi (Compound Eyes), se posizionato al primo posto in squadra, incrementa del 50% la probabilità di trovare strumenti tenuti dai Pokémon selvatici.</p>
+    </div>
+    <div class="team-container" style="margin-bottom: 40px;">
+        <div class="card type-bug">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/12.gif" class="sprite">
+            <div class="types-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/7.png" class="type-badge" alt="Coleottero">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/3.png" class="type-badge" alt="Volante">
+            </div>
+            <div class="name">BUTTERFREE</div>
+            <div class="ability">Insettocchi (Compound Eyes)</div>
+            <div class="nature">Natura: N/A</div>
+            <div class="held-item">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="item-icon">
+                <span>Nessuno (Per Furto)</span>
+            </div>
+            <div class="moves-grid">
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/7.png" class="type-icon" alt="Coleottero"> <img src="special.png" class="type-tag"> <span>Ventargenteo</span></div>
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/17.png" class="type-icon" alt="Buio"> <img src="physical.png" class="type-tag"> <span>Furto</span></div>
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/12.png" class="type-icon" alt="Erba"> <img src="status.png" class="type-tag"> <span>Paralizzante</span></div>
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/14.png" class="type-icon" alt="Psico"> <img src="special.png" class="type-tag"> <span>Psicoraggio</span></div>
+            </div>
+            <div class="recommendation-container">
+                <div class="rec-row"><span class="rec-label">Ruolo</span> <span class="rec-value">Raccoglitore oggetti</span></div>
+            </div>
+            <div class="location-box" data-pokemon="butterfree">Dove trovarli?</div>
+            <div class="location-data" style="display: none;">
+                <div class="data-title">Butterfree (o Caterpie/Metapod)</div>
+                <div class="data-content">
+                    <p><strong>Gioco:</strong> <span style="color: #c0c0c0;">Pokémon HeartGold e SoulSilver</span> / <span style="color: #A0C0D0;">Sinnoh</span></p>
+                    <p class="soulsilver"><strong style="color: #c0c0c0;">Luoghi HeartGold:</strong> Percorso 2, 30, 31, Bosco di Lecci (anche con Bottintesta), Parco Nazionale, Bosco Smeraldo, Gara Pigliamosche.</p>
+                    <p class="soulsilver"><strong style="color: #c0c0c0;">Luoghi SoulSilver:</strong> Gara Pigliamosche.</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Platino:</strong> Percorso 204, Bosco Evopoli. <em>(Richiede la cartuccia GBA di Pokémon Rosso Fuoco inserita nel DS)</em>.</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Diamante / Perla:</strong> Percorso 204 Sud. <em>(Richiede Rosso Fuoco)</em>.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Giochi GBA:</strong> Bosco Smeraldo, Percorso 25, Valle Antica (Solo in Rosso Fuoco/Verde Foglia, da trasferire poi al Parco Amici).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-text">
+        <p><strong>Smeargle</strong> è il "Catcher". Grazie a Schizzo può imparare il moveset perfetto per catturare qualsiasi Pokémon: Malosguardo impedisce la fuga, Spora addormenta, Falsofinale lascia il nemico con 1 PS e Radicamento impedisce di essere costretti allo scambio da mosse come Boato o Turbine.</p>
+    </div>
+    <div class="team-container" style="margin-bottom: 40px;">
+        <div class="card type-normal">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/235.gif" class="sprite">
+            <div class="types-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/1.png" class="type-badge" alt="Normale">
+            </div>
+            <div class="name">SMEARGLE</div>
+            <div class="ability">Mente Locale (Own Tempo)</div>
+            <div class="nature">Natura: Allegra</div>
+            <div class="held-item">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="item-icon">
+                <span>Nessuno</span>
+            </div>
+            <div class="moves-grid">
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/1.png" class="type-icon" alt="Normale"> <img src="physical.png" class="type-tag"> <span>Falsofinale</span></div>
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/12.png" class="type-icon" alt="Erba"> <img src="status.png" class="type-tag"> <span>Spora</span></div>
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/12.png" class="type-icon" alt="Erba"> <img src="status.png" class="type-tag"> <span>Radicamento</span></div>
+                <div class="move-row"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/1.png" class="type-icon" alt="Normale"> <img src="status.png" class="type-tag"> <span>Malosguardo</span></div>
+            </div>
+            <div class="recommendation-container">
+                <div class="rec-row"><span class="rec-label">Ruolo</span> <span class="rec-value">Catcher</span></div>
+            </div>
+            <div class="location-box" data-pokemon="smeargle">Dove trovarli?</div>
+            <div class="location-data" style="display: none;">
+                <div class="data-title">Smeargle</div>
+                <div class="data-content">
+                    <p><strong>Gioco:</strong> <span style="color: #c0c0c0;">Pokémon HeartGold e SoulSilver</span> / <span style="color: #A0C0D0;">Sinnoh</span></p>
+                    <p class="soulsilver"><strong style="color: #c0c0c0;">Luoghi HG/SS:</strong> Rovine d'Alfa, Zona Safari.</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Platino:</strong> Percorso 208, Percorso 212 Nord <em>(tramite Poké Radar)</em>.</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Diamante e Perla:</strong> Percorso 212 Nord <em>(tramite Poké Radar)</em>.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Giochi GBA:</strong> Grotta degli Artigiani (Piani 1 e 2 in Smeraldo), Grotta Mutevole (Smeraldo, Rosso Fuoco, Verde Foglia).</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Pokémon Colosseum:</strong> Sottratto al Cacciatore Liaks nel Sotterraneo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-text">
+        <p><strong>Linoone</strong> con l'abilità Raccolta (Pickup) permette di farmare oggetti come pietre per l'evoluzione, MT, Caramelle Rare. Per massimizzare il farming sono consigliati 5 linoone.</p>
+    </div>
+    <div class="team-container" style="margin-bottom: 40px;">
+        <div class="card type-normal">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/264.gif" class="sprite">
+            <div class="types-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/1.png" class="type-badge" alt="Normale">
+            </div>
+            <div class="name">LINOONE</div>
+            <div class="ability">Raccolta (Pickup)</div>
+            <div class="nature">Natura: N/A</div>
+            <div class="held-item">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="item-icon">
+                <span>Nessuno</span>
+            </div>
+            <div class="moves-grid">
+                <div class="move-row" style="justify-content: center; color: var(--text-muted); font-style: italic;"><span>Moveset irrilevante</span></div>
+            </div>
+            <div class="recommendation-container">
+                <div class="rec-row"><span class="rec-label">Ruolo</span> <span class="rec-value">Farming Passivo</span></div>
+            </div>
+            <div class="location-box" data-pokemon="linoone">Dove trovarli?</div>
+            <div class="location-data" style="display: none;">
+                <div class="data-title">Linoone</div>
+                <div class="data-content">
+                    <p><strong>Gioco:</strong> <span style="color: #c0c0c0;">Pokémon HeartGold e SoulSilver</span> / <span style="color: #A0C0D0;">Sinnoh</span> / <span style="color: #4caf50;">Hoenn</span></p>
+                    <p class="soulsilver"><strong style="color: #c0c0c0;">Luoghi HG/SS:</strong> Percorsi 6, 9, 10, 13, 21, 22, 24, 25, 26, 27, 28, 30, 31, 32, 35, 42, 43, 44, 45, 47. Rovine d'Alfa, Monte Argento, Zona Safari (con Oggetti Speciali).</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Diamante/Perla/Platino:</strong> Ottenibile tramite evoluzione di Zigzagoon.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Smeraldo:</strong> Percorso 118, Percorso 119.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Rubino e Zaffiro:</strong> Percorsi 118, 119, 120, 121, 123.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-text">
+        <p><strong>Slugma</strong> con l'abilità Corpodifuoco (Flame Body) dimezza il numero di passi necessari per schiudere le uova.</p>
+    </div>
+    <div class="team-container" style="margin-bottom: 40px;">
+        <div class="card type-fire">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/218.gif" class="sprite">
+            <div class="types-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/10.png" class="type-badge" alt="Fuoco">
+            </div>
+            <div class="name">SLUGMA</div>
+            <div class="ability">Corpodifuoco (Flame Body)</div>
+            <div class="nature">Natura: N/A</div>
+            <div class="held-item">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="item-icon">
+                <span>Nessuno</span>
+            </div>
+            <div class="moves-grid">
+                <div class="move-row" style="justify-content: center; color: var(--text-muted); font-style: italic;"><span>Moveset irrilevante</span></div>
+            </div>
+            <div class="recommendation-container">
+                <div class="rec-row"><span class="rec-label">Ruolo</span> <span class="rec-value">Schiusa Uova</span></div>
+            </div>
+            <div class="location-box" data-pokemon="slugma">Dove trovarli?</div>
+            <div class="location-data" style="display: none;">
+                <div class="data-title">Slugma</div>
+                <div class="data-content">
+                    <p><strong>Gioco:</strong> <span style="color: #c0c0c0;">Pokémon HeartGold e SoulSilver</span> / <span style="color: #A0C0D0;">Sinnoh</span> / <span style="color: #4caf50;">Giochi GBA</span></p>
+                    <p class="soulsilver"><strong style="color: #c0c0c0;">Luoghi HG/SS:</strong> Percorsi 16, 17, 18.</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Diamante, Perla e Platino:</strong> Monte Ostile.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Smeraldo:</strong> Percorso 113, Cammino Ardente.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Rubino e Zaffiro:</strong> Cammino Ardente.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Rosso Fuoco e Verde Foglia:</strong> Monte Brace (Sotterranei 1, 2 e 3).</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Pokémon Colosseum:</strong> Sottratto al Giocoliere Lon a Sulfuria.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-text">
+        <p>Infine, <strong>Dunsparce</strong> è molto comodo per trovare le Squame Cuore distruggendo le rocce con Spaccaroccia o tramite furto.</p>
+    </div>
+    <div class="team-container" style="margin-bottom: 40px;">
+        <div class="card type-normal">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/206.gif" class="sprite">
+            <div class="types-container">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/1.png" class="type-badge" alt="Normale">
+            </div>
+            <div class="name">DUNSPARCE</div>
+            <div class="ability">Leggiadro (Serene Grace)</div>
+            <div class="nature">Natura: N/A</div>
+            <div class="held-item">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png" class="item-icon">
+                <span>Nessuno</span>
+            </div>
+            <div class="moves-grid">
+                <div class="move-row" style="justify-content: center; color: var(--text-muted); font-style: italic;"><span>Moveset irrilevante</span></div>
+            </div>
+            <div class="recommendation-container">
+                <div class="rec-row"><span class="rec-label">Ruolo</span> <span class="rec-value">Squame Cuore e altro</span></div>
+            </div>
+            <div class="location-box" data-pokemon="dunsparce">Dove trovarli?</div>
+            <div class="location-data" style="display: none;">
+                <div class="data-title">Dunsparce</div>
+                <div class="data-content">
+                    <p><strong>Gioco:</strong> <span style="color: #c0c0c0;">Pokémon HeartGold e SoulSilver</span> / <span style="color: #A0C0D0;">Sinnoh</span> / <span style="color: #4caf50;">Giochi GBA</span></p>
+                    <p class="soulsilver"><strong style="color: #c0c0c0;">Luoghi HG/SS:</strong> Grotta Scura.</p>
+                    <p class="platinum"><strong style="color: #A0C0D0;">Luoghi Diamante, Perla e Platino:</strong> Percorso 208 <em>(solo tramite Sciame / Comparsa Massiccia)</em>.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Rosso Fuoco e Verde Foglia:</strong> Porto Terzisola (Three Isle Port).</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Luoghi Rubino, Zaffiro e Smeraldo:</strong> Ottenibile solo tramite scambio.</p>
+                    <p class="emerald"><strong style="color: #4caf50;">Pokémon Colosseum:</strong> Sottratto al Rider Sosh nella Grotta Pyrite.</p>
+                    <img src="https://archives.bulbagarden.net/media/upload/4/47/Johto_Dark_Cave_Map.png" alt="Grotta Scura (Dark Cave)" style="width: 100%; border-radius: 10px; margin-top: 15px; border: 1px solid var(--border-light); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale per le location -->
+    <div id="locationModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
