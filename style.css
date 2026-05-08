@@ -78,6 +78,7 @@ body::before {
     font-size: 0.8rem;
     letter-spacing: 1px;
     text-shadow: 0 0 5px var(--accent-glow);
+    text-decoration: none;
 }
 
 .nav-logo img {
@@ -146,6 +147,70 @@ h1 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* Stile per i link all'interno del testo introduttivo (es. in Home) */
+.intro-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.intro-text a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--accent-glow-strong);
+}
+
+.intro-text a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent-color);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.intro-text a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    background-color: #fff;
+}
+
+/* Stili per il contenitore del video (nuova aggiunta) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width = 9 / 16) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 15px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Adatta la larghezza del video per schermi più grandi */
+@media (min-width: 900px) {
+    .video-container {
+        width: 700px;
+        height: 394px; /* 700 * 9 / 16 */
+        padding-bottom: 0; /* Rimuove il padding-bottom trick quando l'altezza è fissa */
+    }
+}
+
 .section-header {
     text-align: center;
     color: var(--accent-color);
@@ -208,6 +273,7 @@ h1 {
 .card.type-bug    { --type-color: #a8b820; }
 .card.type-normal { --type-color: #a8a878; }
 .card.type-fire   { --type-color: #f08030; }
+.card.type-electric { --type-color: #f8d030; }
 
 /* Sfondo sfumato leggero dietro la card */
 .card::before {
@@ -586,4 +652,26 @@ h1 {
     border: none;
     margin: 50px auto 10px;
     opacity: 0.5;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.site-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.site-footer a:hover {
+    color: #fff;
+    text-shadow: 0 0 5px var(--accent-glow-strong);
 }

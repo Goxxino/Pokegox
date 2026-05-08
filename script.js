@@ -188,12 +188,50 @@ window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
 });
 
-// --- GESTIONE NAVBAR (Scomparsa allo scroll) ---
-const navBar = document.querySelector('.main-nav');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 250) {
-        navBar.classList.add('hidden-nav');
-    } else {
-        navBar.classList.remove('hidden-nav');
+// --- GENERAZIONE E GESTIONE NAVBAR DINAMICA ---
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Definisci l'HTML della navbar centralizzata
+    const navbarHTML = `
+        <nav class="main-nav">
+            <a href="home.html" class="nav-logo">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="Logo">
+                <span>GOXXINO</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Il Mio Team</a></li>
+                <li><a href="palmer.html">Farm BP</a></li>
+                <li><a href="slaves.html">Pokémon Slave</a></li>
+                <li><a href="utilities.html">Utilities</a></li>
+                <li><a href="farm-squame.html">Farm Squame</a></li>
+                <li><a href="consigli.html">Tips & Tricks</a></li>
+            </ul>
+        </nav>
+    `;
+
+    // 2. Inserisci la navbar all'inizio del tag <body>
+    document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+
+    // 3. Gestione dinamica della classe "active"
+    let currentPage = window.location.pathname.split('/').pop();
+    if (currentPage === '') currentPage = 'home.html'; 
+
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+
+    // 4. Gestione Navbar (Scomparsa allo scroll)
+    const navBar = document.querySelector('.main-nav');
+    if (navBar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 250) {
+                navBar.classList.add('hidden-nav');
+            } else {
+                navBar.classList.remove('hidden-nav');
+            }
+        });
     }
 });
