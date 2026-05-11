@@ -1,5 +1,14 @@
 // Registra il plugin per mostrare i valori sulle barre
-Chart.register(ChartDataLabels);
+if (typeof Chart !== 'undefined' && typeof ChartDataLabels !== 'undefined') {
+    Chart.register(ChartDataLabels);
+}
+
+// Costanti URL
+const ASSETS = {
+    sprites: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/",
+    items: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/",
+    types: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-iv/heartgold-soulsilver/"
+};
 
 // Configurazione Globale (Tema e Costanti)
 const THEME = {
@@ -49,18 +58,7 @@ const getChartOptions = (nature) => {
         },
         plugins: {
             legend: { display: false },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        const idx = context.dataIndex;
-                        const statName = context.chart.data.labels[idx];
-                        const val = context.dataset.data[idx];
-                        const iv = context.dataset.ivs ? context.dataset.ivs[idx] : '';
-                        const ev = context.dataset.evs ? context.dataset.evs[idx] : '';
-                        return [`${statName}: ${val}`, `IV: ${iv}`, `EV: ${ev}`];
-                    }
-                }
-            },
+            tooltip: { enabled: false },
             datalabels: {
                 color: (context) => {
                     const idx = context.dataIndex;
@@ -139,17 +137,101 @@ const renderStatsTable = (containerId, { ivs, evs }, color) => {
     container.innerHTML = gridHTML;
 };
 
-// --- CARICAMENTO DATI (JSON Esterno) ---
-fetch('team-data.json')
-    .then(response => response.json())
-    .then(teamData => {
-        // Inizializzazione Loop
-        teamData.forEach(pokemon => {
-            drawChart(`chart${pokemon.id}`, pokemon, pokemon.color, pokemon.nature);
-            renderStatsTable(`stats${pokemon.id}`, pokemon, pokemon.color);
-        });
-    })
-    .catch(error => console.error('Errore nel caricamento dei dati:', error));
+// Generazione Carte Pokémon
+const renderPokemonCards = (containerId, dataUrl, renderCharts = false, filterId = null) => {
+    fetch(dataUrl)
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            if (filterId) {
+                data = data.filter(pokemon => pokemon.id === filterId);
+            } else {
+                data = data.filter(pokemon => !pokemon.hiddenFromMain);
+            }
+
+            let html = '';
+            data.forEach(pokemon => {
+                const typesHtml = pokemon.types.map(type => `<img src="${ASSETS.types}${type.id}.png" class="type-badge" alt="${type.name}">`).join('\n                ');
+                
+                let movesHtml = '';
+                if (pokemon.moves && pokemon.moves.length > 0) {
+                    movesHtml = pokemon.moves.map(move => {
+                        if (move.details) {
+                            return `<div class="move-row clickable-move"><img src="${ASSETS.types}${move.typeId}.png" class="type-icon" alt="${move.typeName}"> <img src="${move.category}" class="type-tag"> <span>${move.name}</span> ${move.pp ? `<span class="pp">${move.pp}</span>` : ''}</div>
+                <div class="move-data" style="display: none;">
+                    <div class="data-title">${move.name}</div>
+                    <div class="data-content">${move.details}</div>
+                </div>`;
+                        } else {
+                            return `<div class="move-row"><img src="${ASSETS.types}${move.typeId}.png" class="type-icon" alt="${move.typeName}"> <img src="${move.category}" class="type-tag"> <span>${move.name}</span></div>`;
+                        }
+                    }).join('\n                ');
+                } else if (pokemon.movesText) {
+                    movesHtml = `<div class="move-row" style="justify-content: center; color: var(--text-muted); font-style: italic;"><span>${pokemon.movesText}</span></div>`;
+                }
+                
+                const abilityHtml = pokemon.ability ? `<div class="ability">${pokemon.ability}</div>` : '';
+                const natureStr = pokemon.natureText || (pokemon.nature ? `Natura: ${pokemon.nature.charAt(0).toUpperCase() + pokemon.nature.slice(1)}` : '');
+                const natureHtml = natureStr ? `<div class="nature">${natureStr}</div>` : '';
+                
+                const chartsHtml = (renderCharts && pokemon.stats) ? `
+            <div class="chart-container">
+                <div class="chart-header main">STATISTICHE (L. 50)</div>
+                <canvas id="chart${pokemon.id}"></canvas>
+            </div>
+            <div class="chart-header iv-ev">IV & EV</div>
+            <div id="stats${pokemon.id}" class="stats-grid-container"></div>` : '';
+
+                let recommendationsHtml = '';
+                if (pokemon.recommendations) {
+                    recommendationsHtml = `<div class="recommendation-container">\n                ` + pokemon.recommendations.map(rec => `<div class="rec-row"><span class="rec-label">${rec.label}</span> <span class="rec-value">${rec.value}</span></div>`).join('\n                ') + `\n            </div>`;
+                } else {
+                    recommendationsHtml = `
+            <div class="recommendation-container">
+                <div class="rec-row"><span class="rec-label">${pokemon.recLabel || 'EVs'}</span> <span class="rec-value">${pokemon.evsText || pokemon.evs || 'Vedi Tabella'}</span></div>
+            </div>`;
+                }
+
+                const locationHtml = pokemon.location ? `
+            <div class="location-box" data-pokemon="${pokemon.location.id}">Dove trovarli?</div>
+            <div class="location-data" style="display: none;">
+                <div class="data-title">${pokemon.location.title}</div>
+                <div class="data-content">${pokemon.location.content}</div>
+            </div>` : '';
+
+                html += `
+        <div class="card type-${pokemon.mainType}" ${pokemon.cardStyle ? `style="${pokemon.cardStyle}"` : ''}>
+            <img src="${ASSETS.sprites}${pokemon.sprite}" class="sprite" ${pokemon.spriteStyle ? `style="${pokemon.spriteStyle}"` : ''}>
+            <div class="types-container">${typesHtml}</div>
+            <div class="name">${pokemon.name}</div>
+            ${abilityHtml}
+            ${natureHtml}
+            <div class="held-item">
+                <img src="${ASSETS.items}${pokemon.item.icon}" class="item-icon">
+                <span>${pokemon.item.name}</span>
+            </div>
+            ${movesHtml ? `<div class="moves-grid">\n                ${movesHtml}\n            </div>` : ''}
+            ${chartsHtml}
+            ${recommendationsHtml}
+            ${locationHtml}
+        </div>`;
+            });
+            container.innerHTML = html;
+
+            // Se ci sono i grafici da renderizzare, disegnali adesso che i Canvas esistono nel DOM
+            if (renderCharts) {
+                data.forEach(pokemon => {
+                    if (pokemon.stats && pokemon.ivs && pokemon.evs) {
+                        drawChart(`chart${pokemon.id}`, pokemon, pokemon.color, pokemon.nature);
+                        renderStatsTable(`stats${pokemon.id}`, pokemon, pokemon.color);
+                    }
+                });
+            }
+        })
+        .catch(error => console.error(`Errore nel caricamento dei dati da ${dataUrl}:`, error));
+};
 
 // --- GESTIONE MODALE OTTIMIZZATA (Event Delegation) ---
 const modal = document.getElementById('locationModal');
@@ -157,12 +239,15 @@ const modalTitle = document.getElementById('modalTitle');
 const modalBody = document.getElementById('modalBody');
 
 const openModal = (title, content) => {
+    if (!modal || !modalTitle || !modalBody) return;
     modalTitle.innerHTML = title;
     modalBody.innerHTML = content;
     modal.classList.add('show');
 };
 
-const closeModal = () => modal.classList.remove('show');
+const closeModal = () => {
+    if (modal) modal.classList.remove('show');
+};
 
 // UN SOLO event listener per TUTTI i click sulla pagina
 document.body.addEventListener('click', (e) => {
@@ -185,7 +270,7 @@ document.body.addEventListener('click', (e) => {
 
 // Chiusura con tasto Esc
 window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    if (e.key === 'Escape' && modal && modal.classList.contains('show')) closeModal();
 });
 
 // --- GENERAZIONE E GESTIONE NAVBAR DINAMICA ---
@@ -193,17 +278,18 @@ document.addEventListener("DOMContentLoaded", function() {
     // 1. Definisci l'HTML della navbar centralizzata
     const navbarHTML = `
         <nav class="main-nav">
-            <a href="home.html" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png" alt="Logo">
                 <span>GOXXINO</span>
             </a>
             <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="index.html">Il Mio Team</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="team.html">Il Mio Team</a></li>
                 <li><a href="palmer.html">Farm BP</a></li>
                 <li><a href="slaves.html">Pokémon Slave</a></li>
                 <li><a href="utilities.html">Utilities</a></li>
                 <li><a href="farm-squame.html">Farm Squame</a></li>
+                <li><a href="tutor-mosse.html">Tutor Mosse</a></li>
                 <li><a href="consigli.html">Tips & Tricks</a></li>
             </ul>
         </nav>
@@ -214,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // 3. Gestione dinamica della classe "active"
     let currentPage = window.location.pathname.split('/').pop();
-    if (currentPage === '') currentPage = 'home.html'; 
+    if (currentPage === '' || currentPage === 'home.html') currentPage = 'index.html'; 
 
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
@@ -233,5 +319,28 @@ document.addEventListener("DOMContentLoaded", function() {
                 navBar.classList.remove('hidden-nav');
             }
         });
+    }
+
+    // 5. Inizializzazione Dati Pagine (Data-Driven)
+    if (document.getElementById('team-page-container')) {
+        renderPokemonCards('team-page-container', 'team-data.json', true);
+    }
+    if (document.getElementById('palmer-team-container')) {
+        renderPokemonCards('palmer-team-container', 'palmer-data.json');
+    }
+    if (document.getElementById('slaves-team-container')) {
+        renderPokemonCards('slaves-team-container', 'slaves-data.json');
+    }
+    if (document.getElementById('utilities-team-container')) {
+        renderPokemonCards('utilities-team-container', 'utilities-data.json');
+    }
+    if (document.getElementById('musthave-slaves-container')) {
+        renderPokemonCards('musthave-slaves-container', 'slaves-data.json');
+    }
+    if (document.getElementById('musthave-utilities-container')) {
+        renderPokemonCards('musthave-utilities-container', 'utilities-data.json');
+    }
+    if (document.getElementById('rayquaza-container')) {
+        renderPokemonCards('rayquaza-container', 'utilities-data.json', false, 'rayquaza');
     }
 });

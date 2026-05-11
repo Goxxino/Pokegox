@@ -1,0 +1,46 @@
+[
+    {
+        "id": "golduck",
+        "name": "GOLDUCK",
+        "mainType": "water",
+        "sprite": "55.gif",
+        "types": [ { "id": 11, "name": "Acqua" } ],
+        "ability": "N/A",
+        "natureText": "Natura: N/A",
+        "item": { "name": "N/A", "icon": "poke-ball.png" },
+        "moves": [
+            { "name": "Mulinello", "typeId": 11, "typeName": "Acqua", "category": "special.png" },
+            { "name": "Cascata", "typeId": 11, "typeName": "Acqua", "category": "physical.png" },
+            { "name": "Scalaroccia", "typeId": 1, "typeName": "Normale", "category": "physical.png" },
+            { "name": "Forza", "typeId": 1, "typeName": "Normale", "category": "physical.png" }
+        ],
+        "evsText": "N/A",
+        "location": {
+            "id": "golduck",
+            "title": "Golduck",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #A0C0D0;\">Pokémon Platino</span> / <span style=\"color: #c0c0c0;\">Pokémon HeartGold e SoulSilver</span></p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Platino (Surf):</strong> Percorso 203, 204, 205 Nord, 208, 209, 210 Nord, 212, 214, 225, Duefoglie, Evopoli, Memoride, Cammino Roccioso, Varco Mineropoli, Lago Verità, Lago Arguzia, Lago Valore, Area Svago.</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi HG/SS:</strong> Percorso 6, Percorso 35, Bosco di Lecci, Grotta Celeste, Isole Spumarine, Zona Safari.</p>"
+        }
+    },
+    {
+        "id": "tropius",
+        "name": "TROPIUS",
+        "mainType": "grass",
+        "sprite": "357.gif",
+        "types": [ { "id": 12, "name": "Erba" }, { "id": 3, "name": "Volante" } ],
+        "ability": "N/A",
+        "natureText": "Natura: N/A",
+        "item": { "name": "N/A", "icon": "poke-ball.png" },
+        "moves": [
+            { "name": "Volo / Scacciabruma", "typeId": 3, "typeName": "Volante", "category": "physical.png" },
+            { "name": "Spaccaroccia", "typeId": 2, "typeName": "Lotta", "category": "physical.png" },
+            { "name": "Taglio", "typeId": 1, "typeName": "Normale", "category": "physical.png" },
+            { "name": "Flash", "typeId": 1, "typeName": "Normale", "category": "status.png" }
+        ],
+        "evsText": "N/A",
+        "location": {
+            "id": "tropius",
+            "title": "Tropius",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #4caf50;\">Pokémon Smeraldo</span> / <span style=\"color: #A0C0D0;\">Pokémon Platino</span></p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luogo Smeraldo:</strong> Percorso 119</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luogo Platino:</strong> Pratopoli - Zona Safari</p><img src=\"https://archives.bulbagarden.net/media/upload/b/ba/Sinnoh_Pastoria_City_Map.png\" alt=\"Pratopoli - Zona Safari\" style=\"width: 100%; border-radius: 10px; margin-top: 15px; border: 1px solid var(--border-light); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));\">"
+        }
+    }
+]

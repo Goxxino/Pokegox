@@ -1,24 +1,88 @@
 [
     {
         "id": "Garchomp",
+        "name": "GARCHOMP",
+        "mainType": "ground",
+        "sprite": "445.gif",
+        "types": [{ "id": 16, "name": "Drago" }, { "id": 5, "name": "Terra" }],
+        "ability": "Sabbiavelo (Sand Veil)",
         "color": "#ff4d4d",
         "nature": "allegra",
+        "item": { "name": "Sciarpa Scelta (Choice Scarf)", "icon": "choice-scarf.png" },
+        "moves": [
+            { "name": "Terremoto", "typeId": 5, "typeName": "Terra", "category": "physical.png", "pp": "16 PP", "details": "<p>MT 26. Ottenuta in Smeraldo (Grotta dei Tempi) e duplicata col glitch della Torre Lotta. Metodo più veloce: Clonazione infinita.</p>" },
+            { "name": "Danzaspada", "typeId": 1, "typeName": "Normale", "category": "status.png", "pp": "48 PP", "details": "<p>MT 75. Comprata al Centro Commerciale di Rupepoli (Platino) per 2000$. Metodo più veloce: Acquisto diretto.</p>" },
+            { "name": "Oltraggio", "typeId": 16, "typeName": "Drago", "category": "physical.png", "pp": "24 PP", "details": "<p>Insegnamosse. Si impara alla Frontiera Lotta (Platino/HGSS). Costa 48 BP. Metodo più veloce: Farming Palmer (Torre Lotta).</p>" },
+            { "name": "Rogodenti", "typeId": 10, "typeName": "Fuoco", "category": "physical.png", "pp": "24 PP", "details": "<p>Livello 1 / Ricordamosse. Vai a Ebanopoli (HGSS) o Pratopoli (Platino) con una Squama Cuore<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heart-scale.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-bottom: 3px;\" alt=\"Squama Cuore\">.</p>" }
+        ],
+        "recommendations": [
+            { "label": "Natura consigliata", "value": "Allegra" },
+            { "label": "IV prioritari", "value": "Velocità, Attacco" }
+        ],
+        "location": {
+            "id": "garchomp",
+            "title": "Gible (Pre-evoluzione di Garchomp)",
+            "content": "<p class=\"platinum\"><strong>Gioco:</strong> <span style=\"color: #A0C0D0;\">Pokémon Platino</span></p><p class=\"platinum\"><strong>Luogo:</strong> Grotta Labirinto (Wayward Cave) - Ingresso Segreto.</p><p class=\"platinum\"><strong>Posizione:</strong> Sotto la Pista Ciclabile (Percorso 206).</p><p class=\"platinum\"><strong>Requisiti:</strong> MN Forza per spostare i massi all'interno.</p><img src=\"https://archives.bulbagarden.net/media/upload/f/f2/Sinnoh_Route_206_Map.png\" alt=\"Percorso 206 (Route 206)\" style=\"width: 100%; border-radius: 10px; margin-top: 15px; border: 1px solid var(--border-light); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));\">"
+        },
         "ivs": [24, 29, 5, 16, 18, 31],
         "evs": [6, 163, 20, 34, 16, 106],
         "stats": [184, 182, 115, 90, 105, 169]
     },
     {
         "id": "Starmie",
+        "name": "STARMIE",
+        "mainType": "water",
+        "sprite": "121.gif",
+        "spriteStyle": "height: 75px; margin-top: 15px;",
+        "types": [{ "id": 11, "name": "Acqua" }, { "id": 14, "name": "Psico" }],
+        "ability": "Alternacura (Natural Cure)",
         "color": "#44ddff",
         "nature": "timida",
+        "item": { "name": "Sfera Vita (Life Orb)", "icon": "life-orb.png" },
+        "moves": [
+            { "name": "Psichico", "typeId": 14, "typeName": "Psico", "category": "special.png", "pp": "16 PP", "details": "<p>MT 29. Ottenuta in Smeraldo (Casinò/Via Vittoria) e duplicata col glitch. Metodo più veloce: Clonazione.</p>" },
+            { "name": "Geloraggio", "typeId": 15, "typeName": "Ghiaccio", "category": "special.png", "pp": "16 PP", "details": "<p>MT 13. Ottenuta in Smeraldo (Casinò/Relitto) e duplicata col glitch. Metodo più veloce: Clonazione.</p>" },
+            { "name": "Fulmine", "typeId": 13, "typeName": "Elettro", "category": "special.png", "pp": "24 PP", "details": "<p>MT 24. Ottenuta in Smeraldo (Centrale Elettrica/Casinò) e duplicata col glitch. Metodo più veloce: Clonazione.</p>" },
+            { "name": "Surf", "typeId": 11, "typeName": "Acqua", "category": "special.png", "pp": "24 PP", "details": "<p>MN 03. Si ottiene durante la storia a Amarantopoli (Ecruteak City) dopo aver battuto le Kimono Girls.</p>" }
+        ],
+        "recommendations": [
+            { "label": "Natura consigliata", "value": "Timida" },
+            { "label": "IV prioritari", "value": "Velocità, Atk. Speciale" }
+        ],
+        "location": {
+            "id": "starmie",
+            "title": "Staryu (Pre-evoluzione di Starmie)",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #4caf50;\">Pokémon Smeraldo</span> / <span style=\"color: #c0c0c0;\">Pokémon SoulSilver</span> / Leaf Green</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luogo Smeraldo:</strong> Alghepoli (Lilycove City) - Coste</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luogo SoulSilver:</strong> Fiorpesca (Cherrygrove City), Olivinopoli (Olivine City), Percorso 47.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Posizione:</strong> Lungo le rive della città, ad esempio di fronte al Centro Commerciale o vicino al molo.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Requisiti:</strong> Super Amo<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/super-rod.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;\" alt=\"Super Amo\">. Si ottiene a Verdeazzupoli (Mossdeep City) parlando con il pescatore nella casa a nord-est.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Pietra Idrica Smeraldo:</strong> Necessaria per l'evoluzione<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-bottom: 3px;\" alt=\"Pietra Idrica\">. Si trova nel Relitto (Abandoned Ship) o scambiando un Coccio Blu<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/blue-shard.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;\" alt=\"Coccio Blu\">con il Cercatesori sul Percorso 124.</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Pietra Idrica SoulSilver:</strong> Necessaria per l'evoluzione<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/water-stone.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-bottom: 3px;\" alt=\"Pietra Idrica\">. Si ottiene dal Nonno di Bill (Percorso 25 a Kanto), come premio alla Gara Pigliamosche (Parco Nazionale) o tramite il numero di telefono del Pescatore Tullio (Percorso 42).</p>"
+        },
         "ivs": [6, 30, 31, 25, 30, 26],
         "evs": [0, 0, 0, 255, 0, 255],
         "stats": [114, 68, 101, 164, 105, 133]
     },
     {
         "id": "Metagross",
+        "name": "METAGROSS",
+        "mainType": "steel",
+        "sprite": "376.gif",
+        "types": [{ "id": 9, "name": "Acciaio" }, { "id": 14, "name": "Psico" }],
+        "ability": "Corpochiaro (Clear Body)",
         "color": "#00f2ff",
         "nature": "furba",
+        "item": { "name": "Fascia Scelta (Choice Band)", "icon": "choice-band.png" },
+        "moves": [
+            { "name": "Pugnoscarica", "typeId": 9, "typeName": "Acciaio", "category": "physical.png", "pp": "48 PP", "details": "<p>Livello 1 / Ricordamosse. Essendo una mossa base di Metagross, non la impara salendo di livello dal 50 in poi, ma va \"ricordata\" a Ebanopoli/Pratopoli.</p>" },
+            { "name": "Cozzata Zen", "typeId": 14, "typeName": "Psico", "category": "physical.png", "pp": "24 PP", "details": "<p>Livello 20 / Ricordamosse. Metang la impara al 20. Se il tuo Metagross è già oltre quel livello, usa il Ricordamosse. Metodo più veloce: 1 Squama Cuore<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heart-scale.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-bottom: 3px;\" alt=\"Squama Cuore\"> (risparmi i BP del Tutor).</p>" },
+            { "name": "Terremoto", "typeId": 5, "typeName": "Terra", "category": "physical.png", "pp": "16 PP", "details": "<p>MT 26. Insegnata in Smeraldo prima del trasferimento (duplicata col glitch).</p>" },
+            { "name": "Meteorpugno", "typeId": 9, "typeName": "Acciaio", "category": "physical.png", "pp": "16 PP", "details": "<p>Livello 50. Se l'hai cancellata per sbaglio, usa il Ricordamosse.</p>" }
+        ],
+        "recommendations": [
+            { "label": "Natura consigliata", "value": "Decisa" },
+            { "label": "IV prioritari", "value": "Attacco, HP" }
+        ],
+        "location": {
+            "id": "metagross",
+            "title": "Beldum (Pre-evoluzione di Metagross)",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #4caf50;\">Pokémon Smeraldo</span> / <span style=\"color: #A0C0D0;\">Pokémon Platino</span> / <span style=\"color: #c0c0c0;\">Pokémon SoulSilver</span></p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luogo Smeraldo:</strong> Verdeazzupoli (Mossdeep City) - Casa di Rocco (Steven).</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luogo Platino:</strong> Percorso 228 (Route 228).</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luogo SoulSilver:</strong> Zafferanopoli (Saffron City) - Edificio Silph Co.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Posizione Smeraldo:</strong> Poké Ball<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-right: 5px; margin-bottom: 3px;\" alt=\"Poké Ball\">lasciata sul tavolo all'interno della casa di Rocco (a nord-ovest del Centro Pokémon).</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Posizione Platino:</strong> Nell'erba alta durante una tempesta di sabbia, ma solo se è attivo lo Sciame (Swarm) del giorno.</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Posizione SoulSilver:</strong> Si riceve in regalo da Rocco che si trova nell'atrio dell'edificio Silph Co.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Requisiti Smeraldo:</strong> Aver sconfitto i Superquattro e il Campione della Lega Pokémon.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Requisiti Platino:</strong> Pokédex Nazionale. Bisogna controllare la TV o parlare con la sorella di Lucas/Lucinda per attivare lo Sciame.</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Requisiti SoulSilver:</strong> Aver sconfitto Rosso sul Monte Argento. È necessario offrire a Rocco un Forretress in cambio del suo Beldum.</p>"
+        },
         "ivs": [25, 31, 24, 12, 19, 0],
         "evs": [255, 255, 0, 0, 0, 0],
         "stats": [184, 187, 147, 106, 104, 75]

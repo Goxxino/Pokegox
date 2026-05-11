@@ -1,0 +1,58 @@
+[
+    {
+        "id": "milotic",
+        "name": "MILOTIC",
+        "mainType": "water",
+        "sprite": "350.gif",
+        "types": [
+            { "id": 11, "name": "Acqua" }
+        ],
+        "nature": "Natura: Modesta",
+        "item": { "name": "Conchinella (Shell Bell)", "icon": "shell-bell.png" },
+        "moves": [
+            { "name": "Surf", "typeId": 11, "typeName": "Acqua", "category": "special.png" },
+            { "name": "Geloraggio", "typeId": 15, "typeName": "Ghiaccio", "category": "special.png" },
+            { "name": "Attrazione", "typeId": 1, "typeName": "Normale", "category": "status.png" },
+            { "name": "Ipnosi", "typeId": 14, "typeName": "Psico", "category": "status.png" }
+        ],
+        "evs": "252 PS / 252 Att. Sp."
+    },
+    {
+        "id": "rhyperior",
+        "name": "RHYPERIOR",
+        "mainType": "rock",
+        "sprite": "464.gif",
+        "types": [
+            { "id": 5, "name": "Terra" },
+            { "id": 6, "name": "Roccia" }
+        ],
+        "nature": "Natura: Decisa",
+        "item": { "name": "Bandana (Focus Band)", "icon": "focus-band.png" },
+        "moves": [
+            { "name": "Devastomasso", "typeId": 6, "typeName": "Roccia", "category": "physical.png" },
+            { "name": "Terremoto", "typeId": 5, "typeName": "Terra", "category": "physical.png" },
+            { "name": "Sgranocchio", "typeId": 17, "typeName": "Buio", "category": "physical.png" },
+            { "name": "Boato", "typeId": 1, "typeName": "Normale", "category": "status.png" }
+        ],
+        "evs": "252 Att / 252 Dif"
+    },
+    {
+        "id": "dragonite",
+        "name": "DRAGONITE",
+        "mainType": "dragon",
+        "sprite": "149.gif",
+        "types": [
+            { "id": 16, "name": "Drago" },
+            { "id": 3, "name": "Volante" }
+        ],
+        "nature": "Natura: Decisa",
+        "item": { "name": "Baccaprugna (Lum Berry)", "icon": "lum-berry.png" },
+        "moves": [
+            { "name": "Dragartigli", "typeId": 16, "typeName": "Drago", "category": "physical.png" },
+            { "name": "Aeroassalto", "typeId": 3, "typeName": "Volante", "category": "physical.png" },
+            { "name": "Tuononda", "typeId": 13, "typeName": "Elettro", "category": "status.png" },
+            { "name": "Dragodanza", "typeId": 16, "typeName": "Drago", "category": "status.png" }
+        ],
+        "evs": "252 Att / 252 Dif. Sp."
+    }
+]

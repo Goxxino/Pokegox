@@ -1,0 +1,132 @@
+[
+    {
+        "id": "butterfree",
+        "name": "BUTTERFREE",
+        "mainType": "bug",
+        "sprite": "12.gif",
+        "types": [
+            { "id": 7, "name": "Coleottero" },
+            { "id": 3, "name": "Volante" }
+        ],
+        "ability": "Insettocchi (Compound Eyes)",
+        "natureText": "Natura: N/A",
+        "item": { "name": "Nessuno (Per Furto)", "icon": "poke-ball.png" },
+        "moves": [
+            { "name": "Ventargenteo", "typeId": 7, "typeName": "Coleottero", "category": "special.png" },
+            { "name": "Furto", "typeId": 17, "typeName": "Buio", "category": "physical.png" },
+            { "name": "Paralizzante", "typeId": 12, "typeName": "Erba", "category": "status.png" },
+            { "name": "Psicoraggio", "typeId": 14, "typeName": "Psico", "category": "special.png" }
+        ],
+        "recLabel": "Ruolo",
+        "evsText": "Raccoglitore oggetti",
+        "location": {
+            "id": "butterfree",
+            "title": "Butterfree (o Caterpie/Metapod)",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #c0c0c0;\">Pokémon HeartGold e SoulSilver</span> / <span style=\"color: #A0C0D0;\">Sinnoh</span></p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi HeartGold:</strong> Percorso 2, 30, 31, Bosco di Lecci (anche con Bottintesta), Parco Nazionale, Bosco Smeraldo, Gara Pigliamosche.</p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi SoulSilver:</strong> Gara Pigliamosche.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Platino:</strong> Percorso 204, Bosco Evopoli. <em>(Richiede la cartuccia GBA di Pokémon Rosso Fuoco inserita nel DS)</em>.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Diamante / Perla:</strong> Percorso 204 Sud. <em>(Richiede Rosso Fuoco)</em>.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Giochi GBA:</strong> Bosco Smeraldo, Percorso 25, Valle Antica (Solo in Rosso Fuoco/Verde Foglia, da trasferire poi al Parco Amici).</p>"
+        }
+    },
+    {
+        "id": "smeargle",
+        "name": "SMEARGLE",
+        "mainType": "normal",
+        "sprite": "235.gif",
+        "types": [
+            { "id": 1, "name": "Normale" }
+        ],
+        "ability": "Mente Locale (Own Tempo)",
+        "natureText": "Natura: Allegra",
+        "item": { "name": "Nessuno", "icon": "poke-ball.png" },
+        "moves": [
+            { "name": "Falsofinale", "typeId": 1, "typeName": "Normale", "category": "physical.png" },
+            { "name": "Spora", "typeId": 12, "typeName": "Erba", "category": "status.png" },
+            { "name": "Radicamento", "typeId": 12, "typeName": "Erba", "category": "status.png" },
+            { "name": "Malosguardo", "typeId": 1, "typeName": "Normale", "category": "status.png" }
+        ],
+        "recLabel": "Ruolo",
+        "evsText": "Catcher",
+        "location": {
+            "id": "smeargle",
+            "title": "Smeargle",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #c0c0c0;\">Pokémon HeartGold e SoulSilver</span> / <span style=\"color: #A0C0D0;\">Sinnoh</span></p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi HG/SS:</strong> Rovine d'Alfa, Zona Safari.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Platino:</strong> Percorso 208, Percorso 212 Nord <em>(tramite Poké Radar<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-radar.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-bottom: 3px;\" alt=\"Poké Radar\">)</em>.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Diamante e Perla:</strong> Percorso 212 Nord <em>(tramite Poké Radar<img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-radar.png\" class=\"item-icon\" style=\"vertical-align: middle; margin-left: 5px; margin-bottom: 3px;\" alt=\"Poké Radar\">)</em>.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Giochi GBA:</strong> Grotta degli Artigiani (Piani 1 e 2 in Smeraldo), Grotta Mutevole (Smeraldo, Rosso Fuoco, Verde Foglia).</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Pokémon Colosseum:</strong> Sottratto al Cacciatore Liaks nel Sotterraneo.</p>"
+        }
+    },
+    {
+        "id": "linoone",
+        "name": "LINOONE",
+        "mainType": "normal",
+        "sprite": "264.gif",
+        "types": [ { "id": 1, "name": "Normale" } ],
+        "ability": "Raccolta (Pickup)",
+        "natureText": "Natura: N/A",
+        "item": { "name": "Nessuno", "icon": "poke-ball.png" },
+        "movesText": "Moveset irrilevante",
+        "recLabel": "Ruolo",
+        "evsText": "Farming Passivo",
+        "location": {
+            "id": "linoone",
+            "title": "Linoone",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #c0c0c0;\">Pokémon HeartGold e SoulSilver</span> / <span style=\"color: #A0C0D0;\">Sinnoh</span> / <span style=\"color: #4caf50;\">Hoenn</span></p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi HG/SS:</strong> Percorsi 6, 9, 10, 13, 21, 22, 24, 25, 26, 27, 28, 30, 31, 32, 35, 42, 43, 44, 45, 47. Rovine d'Alfa, Monte Argento, Zona Safari (con Oggetti Speciali).</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Diamante/Perla/Platino:</strong> Ottenibile tramite evoluzione di Zigzagoon.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Smeraldo:</strong> Percorso 118, Percorso 119.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Rubino e Zaffiro:</strong> Percorsi 118, 119, 120, 121, 123.</p>"
+        }
+    },
+    {
+        "id": "slugma",
+        "name": "SLUGMA",
+        "mainType": "fire",
+        "sprite": "218.gif",
+        "types": [ { "id": 10, "name": "Fuoco" } ],
+        "ability": "Corpodifuoco (Flame Body)",
+        "natureText": "Natura: N/A",
+        "item": { "name": "Nessuno", "icon": "poke-ball.png" },
+        "movesText": "Moveset irrilevante",
+        "recLabel": "Ruolo",
+        "evsText": "Schiusa Uova",
+        "location": {
+            "id": "slugma",
+            "title": "Slugma",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #c0c0c0;\">Pokémon HeartGold e SoulSilver</span> / <span style=\"color: #A0C0D0;\">Sinnoh</span> / <span style=\"color: #4caf50;\">Giochi GBA</span></p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi HG/SS:</strong> Percorsi 16, 17, 18.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Diamante, Perla e Platino:</strong> Monte Ostile.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Smeraldo:</strong> Percorso 113, Cammino Ardente.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Rubino e Zaffiro:</strong> Cammino Ardente.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Rosso Fuoco e Verde Foglia:</strong> Monte Brace (Sotterranei 1, 2 e 3).</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Pokémon Colosseum:</strong> Sottratto al Giocoliere Lon a Sulfuria.</p>"
+        }
+    },
+    {
+        "id": "dunsparce",
+        "name": "DUNSPARCE",
+        "mainType": "normal",
+        "sprite": "206.gif",
+        "types": [ { "id": 1, "name": "Normale" } ],
+        "ability": "Leggiadro (Serene Grace)",
+        "natureText": "Natura: N/A",
+        "item": { "name": "Nessuno", "icon": "poke-ball.png" },
+        "moves": [
+            { "name": "Spaccaroccia", "typeId": 2, "typeName": "Lotta", "category": "physical.png" }
+        ],
+        "recLabel": "Ruolo",
+        "evsText": "Squame Cuore e altro",
+        "location": {
+            "id": "dunsparce",
+            "title": "Dunsparce",
+            "content": "<p><strong>Gioco:</strong> <span style=\"color: #c0c0c0;\">Pokémon HeartGold e SoulSilver</span> / <span style=\"color: #A0C0D0;\">Sinnoh</span> / <span style=\"color: #4caf50;\">Giochi GBA</span></p><p class=\"soulsilver\"><strong style=\"color: #c0c0c0;\">Luoghi HG/SS:</strong> Grotta Scura.</p><p class=\"platinum\"><strong style=\"color: #A0C0D0;\">Luoghi Diamante, Perla e Platino:</strong> Percorso 208 <em>(solo tramite Sciame / Comparsa Massiccia)</em>.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Rosso Fuoco e Verde Foglia:</strong> Porto Terzisola (Three Isle Port).</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Luoghi Rubino, Zaffiro e Smeraldo:</strong> Ottenibile solo tramite scambio.</p><p class=\"emerald\"><strong style=\"color: #4caf50;\">Pokémon Colosseum:</strong> Sottratto al Rider Sosh nella Grotta Pyrite.</p><img src=\"https://archives.bulbagarden.net/media/upload/4/47/Johto_Dark_Cave_Map.png\" alt=\"Grotta Scura (Dark Cave)\" style=\"width: 100%; border-radius: 10px; margin-top: 15px; border: 1px solid var(--border-light); filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));\">"
+        }
+    },
+    {
+        "id": "rayquaza",
+        "name": "RAYQUAZA",
+        "mainType": "dragon",
+        "sprite": "384.gif",
+        "types": [
+            { "id": 16, "name": "Drago" },
+            { "id": 3, "name": "Volante" }
+        ],
+        "ability": "Riparo (Air Lock)",
+        "natureText": "Natura: N/A",
+        "item": { "name": "Nessuno", "icon": "poke-ball.png" },
+        "moves": [
+            { "name": "Dragartigli", "typeId": 16, "typeName": "Drago", "category": "physical.png" },
+            { "name": "Extrarapido", "typeId": 1, "typeName": "Normale", "category": "physical.png" },
+            { "name": "Lanciafiamme", "typeId": 10, "typeName": "Fuoco", "category": "special.png" },
+            { "name": "Terremoto", "typeId": 5, "typeName": "Terra", "category": "physical.png" }
+        ],
+        "recLabel": "Ruolo",
+        "evsText": "Sweeper per Grinding",
+        "cardStyle": "margin: 0 auto;",
+        "hiddenFromMain": true
+    }
+]
