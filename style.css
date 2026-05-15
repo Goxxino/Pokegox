@@ -690,3 +690,64 @@ h1 {
 .mb-40 { margin-bottom: 40px; }
 .text-center { text-align: center; }
 .line-height-16 { line-height: 1.6; }
+
+/* --- TABELLE (Tutor Mosse) --- */
+.table-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto 40px;
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    overflow-x: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    padding: 20px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-body);
+    font-size: 0.85rem;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.custom-table th {
+    font-family: var(--font-pixel);
+    font-size: 0.65rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.custom-table tr:last-child td {
+    border-bottom: none;
+}
+
+.custom-table tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.shard {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.shard-red { background: #d32f2f; border: 1px solid #b71c1c; }
+.shard-blue { background: #1976d2; border: 1px solid #0d47a1; }
+.shard-green { background: #388e3c; border: 1px solid #1b5e20; }
+.shard-yellow { background: #fbc02d; color: #333; text-shadow: none; border: 1px solid #f57f17; }
