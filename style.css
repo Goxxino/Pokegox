@@ -1,27 +1,31 @@
 :root {
-    --accent-color: #ffcb05;
-    --accent-glow: rgba(255, 203, 5, 0.2);   /* Glow ridotto */
-    --accent-glow-strong: rgba(255, 203, 5, 0.4); /* Glow forte ridotto */
-    --border-light: rgba(255, 255, 255, 0.1);
-    --bg-light: rgba(255, 255, 255, 0.03);
+    --bg-main: #121212;
+    --bg-card: #1e1e1e;
+    --bg-element: #2a2a2a;
+    --bg-element-hover: #333333;
+    
+    --border-light: rgba(255, 255, 255, 0.08);
+
+    --text-main: #f5f5f5;
+    --text-secondary: #a0a0a0;
+    --text-body: #d0d0d0;
+    --text-muted: #888888;
+    --text-dim: #666666;
+
+    --accent-color: #e5c07b;
+    --accent-hover: #d1b072;
+    
     --font-pixel: 'Press Start 2P', cursive;
     --font-main: 'Montserrat', sans-serif;
-    --color-secondary: #3c5aa6;
-    --text-main: #f0f0f0;
-    --text-secondary: #e0e0e0;
-    --text-body: #ddd;
-    --text-muted: #aaa;
-    --text-dim: #888;
-    --bg-card: rgba(26, 26, 26, 0.6);
-    --bg-element: #252525;
-    --bg-element-hover: #333;
-    --color-emerald: #4caf50;
-    --color-platinum: #A0C0D0;
-    --color-soulsilver: #c0c0c0;
+    
+    /* Desaturated Pokemon Types */
+    --color-emerald: #5cb85c;
+    --color-platinum: #9bb7d4;
+    --color-soulsilver: #b0b0b0;
 }
 
 body {
-    background: #050505;
+    background-color: var(--bg-main);
     min-height: 100vh;
     box-sizing: border-box;
     color: var(--text-main);
@@ -33,36 +37,25 @@ body {
     margin: 0;
 }
 
-/* Background Animato su Pseudo-elemento (Performance) */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, #050505, #1a1a1a);
-    z-index: -2;
-}
-
 /* --- NAV BAR --- */
 .main-nav {
     position: sticky;
     top: 20px;
     width: 100%;
     max-width: 1100px;
-    background: var(--bg-card);
-    backdrop-filter: blur(15px);
+    background-color: rgba(30, 30, 30, 0.95);
     border: 1px solid var(--border-light);
-    border-radius: 30px;
+    border-radius: 16px;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 30px;
     margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Classe aggiunta dinamicamente con JS per nascondere la barra */
 .main-nav.hidden-nav {
     opacity: 0;
     transform: translateY(-150%);
@@ -77,7 +70,6 @@ body::before {
     color: var(--accent-color);
     font-size: 0.8rem;
     letter-spacing: 1px;
-    text-shadow: 0 0 5px var(--accent-glow);
     text-decoration: none;
 }
 
@@ -98,24 +90,22 @@ body::before {
     text-decoration: none;
     color: var(--text-secondary);
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--accent-color);
-    text-shadow: 0 0 8px var(--accent-glow-strong);
 }
 
-/* Menu Responsive per Smartphone */
 @media (max-width: 768px) {
     .main-nav {
         flex-direction: column;
         gap: 15px;
         padding: 15px 20px;
-        border-radius: 20px;
+        border-radius: 12px;
     }
     .nav-links {
         flex-wrap: wrap;
@@ -125,13 +115,15 @@ body::before {
 }
 
 h1 {
-    letter-spacing: 6px;
-    font-weight: 800;
+    font-family: var(--font-main);
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: 4px;
     margin-bottom: 50px;
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right, #0d0d0d, var(--accent-color), var(--color-secondary), #0d0d0d) 1;
-    padding-bottom: 10px;
-    text-shadow: 0 0 6px var(--accent-glow); /* Glow più stretto */
+    color: var(--text-main);
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 15px;
 }
 
 .intro-text {
@@ -140,57 +132,37 @@ h1 {
     margin-bottom: 40px;
     line-height: 1.6;
     color: var(--text-secondary);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 15px;
+    background: var(--bg-card);
+    padding: 24px;
+    border-radius: 16px;
     border-left: 4px solid var(--accent-color);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border-top: 1px solid var(--border-light);
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Stile per i link all'interno del testo introduttivo (es. in Home) */
 .intro-text a {
     color: var(--accent-color);
     text-decoration: none;
-    font-weight: 700;
-    position: relative;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .intro-text a:hover {
-    color: #fff;
-    text-shadow: 0 0 8px var(--accent-glow-strong);
+    color: var(--accent-hover);
 }
 
-.intro-text a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--accent-color);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease-out;
-}
-
-.intro-text a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-    background-color: #fff;
-}
-
-/* Stili per il contenitore del video (nuova aggiunta) */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width = 9 / 16) */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     max-width: 100%;
     background: #000;
-    border-radius: 15px;
+    border-radius: 12px;
     margin: 40px auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .video-container iframe {
@@ -202,100 +174,77 @@ h1 {
     border: none;
 }
 
-/* Adatta la larghezza del video per schermi più grandi */
 @media (min-width: 900px) {
     .video-container {
         width: 700px;
-        height: 394px; /* 700 * 9 / 16 */
-        padding-bottom: 0; /* Rimuove il padding-bottom trick quando l'altezza è fissa */
+        height: 394px;
+        padding-bottom: 0;
     }
 }
 
 .section-header {
     text-align: center;
     color: var(--accent-color);
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin: 40px 0 20px;
-    text-shadow: 0 0 6px var(--accent-glow); /* Glow più stretto */
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .trainer-sprite {
     height: 96px;
     display: block;
     margin: 15px auto;
-    filter: drop-shadow(0 0 3px var(--accent-glow-strong)); /* Glow dorato */
 }
 
 .team-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     width: 100%;
 }
 
-/* Ammorbidiamo la card e le ombre */
-/* Utility Glassmorphism Centralizzata */
 .card, .modal-content, .stats-grid-container, .recommendation-container, .location-box {
-    backdrop-filter: blur(10px); /* Effetto vetro smerigliato */
-}
-
-.card, .modal-content {
-    border: 1px solid var(--border-light); /* Bordo sottile semitrasparente */
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
 }
 
 .card {
-    background: var(--bg-card);
-    border-radius: 30px;
-    /* Layout Responsivo con clamp() e min() */
     width: min(420px, 95vw);
-    padding: clamp(15px, 3vw, 25px);
-    
-    /* Bagliori automatici con color-mix */
-    --card-glow: color-mix(in srgb, var(--type-color), transparent 60%);
+    padding: clamp(20px, 4vw, 30px);
     border-top: 4px solid var(--type-color);
-    
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-/* Definizione Variabili Colore per Tipo */
-.card.type-ground { --type-color: #f08030; }
-.card.type-water  { --type-color: #6890f0; }
-.card.type-steel  { --type-color: #b8b8d0; }
-.card.type-dragon { --type-color: #7038f8; }
-.card.type-rock   { --type-color: #b8a038; }
-.card.type-grass  { --type-color: #78c850; }
-.card.type-bug    { --type-color: #a8b820; }
-.card.type-normal { --type-color: #a8a878; }
-.card.type-fire   { --type-color: #f08030; }
-.card.type-electric { --type-color: #f8d030; }
+/* Desaturated Pokemon Types */
+.card.type-ground { --type-color: #d89b6b; }
+.card.type-water  { --type-color: #79a1df; }
+.card.type-steel  { --type-color: #a4a4b8; }
+.card.type-dragon { --type-color: #8c73d2; }
+.card.type-rock   { --type-color: #baa86a; }
+.card.type-grass  { --type-color: #8bc26d; }
+.card.type-bug    { --type-color: #aeb55a; }
+.card.type-normal { --type-color: #aeae9d; }
+.card.type-fire   { --type-color: #d68756; }
+.card.type-electric { --type-color: #dfc259; }
 
-/* Sfondo sfumato leggero dietro la card */
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 150px;
-    background: linear-gradient(to bottom, var(--bg-light), transparent);
-    pointer-events: none;
-}
-
-/* Interattività: Effetto "3D Tilt" e Glow Dinamico */
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 40px var(--card-glow);
+    transform: translateY(-4px);
     border-color: var(--type-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 .sprite {
     height: 90px;
     display: block;
     margin: 0 auto 20px;
-    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
 }
 
 .types-container {
@@ -314,23 +263,22 @@ h1 {
 
 .name {
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: var(--accent-color);
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px var(--accent-glow-strong); /* Testo Neon ridotto */
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: 1px;
 }
 
 .ability, .nature, .held-item {
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    opacity: 0.5;
+    color: var(--text-secondary);
     margin-bottom: 10px;
 }
 
 .ability, .nature {
-    font-family: var(--font-pixel); /* Font pixelato */
+    font-weight: 600;
 }
 
 .held-item {
@@ -339,6 +287,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 8px;
+    color: var(--text-muted);
 }
 
 .item-icon {
@@ -349,18 +298,17 @@ h1 {
 
 .moves-grid {
     display: grid;
-    gap: 10px;
+    gap: 8px;
     margin-bottom: 30px;
 }
 
-/* Le righe delle mosse diventano più "soft" */
 .move-row {
-    background: var(--bg-element);
-    padding: 10px 15px;
-    border-radius: 15px; /* Arrotondate invece che spigolose */
-    border: none; /* Rimuoviamo il bordo per un look più pulito */
+    background-color: var(--bg-element);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid var(--border-light);
     font-size: 0.85rem;
-    color: var(--text-body);
+    color: var(--text-main);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -368,22 +316,19 @@ h1 {
 
 .clickable-move {
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .clickable-move:hover {
-    background: var(--bg-element-hover);
-    transform: translateX(5px);
+    background-color: var(--bg-element-hover);
+    transform: translateX(4px);
 }
 
 .move-row .pp {
     margin-left: auto;
-    font-size: 0.75rem;
-    font-family: var(--font-pixel); /* Font pixelato */
+    font-size: 0.7rem;
+    font-family: var(--font-pixel);
     color: var(--text-muted);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .type-icon {
@@ -396,52 +341,50 @@ h1 {
     width: 35px;
 }
 
-/* Contenitore grafico: meno "incassato", più integrato */
 .chart-container {
     position: relative;
-    height: 240px; /* Aumentato da 180px */
+    height: 240px;
     width: 100%;
-    background: var(--bg-light); /* Sfondo leggerissimo */
-    border-radius: 20px;
-    padding: 10px 40px 10px 10px; /* Aumentato il padding destro a 40px */
+    background-color: var(--bg-element);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    padding: 10px 40px 10px 10px;
     margin-top: 10px;
-    box-sizing: border-box; /* Fondamentale per non far sbordare */
+    box-sizing: border-box;
 }
 
-/* Header delle stats più elegante */
 .chart-header.main {
     display: flex;
     justify-content: center;
     font-family: var(--font-main);
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #666;
+    color: var(--text-secondary);
     margin-bottom: 8px;
     padding: 0 10px;
-    white-space: pre-line; /* consente <br> a funzionare */
+    white-space: pre-line;
 }
 
-/* Header IV/EV più chiaro */
 .chart-header.iv-ev {
     display: flex;
     justify-content: center;
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #555; /* Grigio scuro per non distrarre */
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
     margin-top: 20px;
     margin-bottom: 5px;
     text-transform: uppercase;
 }
 
-/* Contenitore tabella IV/EV */
 .stats-grid-container {
     margin-top: 15px;
     margin-bottom: 10px;
-    background: var(--bg-light);
-    border-radius: 20px;
+    background-color: var(--bg-element);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
     padding: 15px;
     overflow: hidden;
 }
@@ -459,14 +402,13 @@ h1 {
 
 .stats-grid-header > div {
     padding: 8px;
-    font-family: var(--font-pixel); /* Font pixelato */
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--accent-color);
-    text-shadow: 0 0 4px rgba(255, 203, 5, 0.3);
+    color: var(--text-secondary);
     text-align: center;
+    border-bottom: 1px solid var(--border-light);
 }
 
 .stats-grid-row {
@@ -480,18 +422,21 @@ h1 {
     align-items: center;
     justify-content: center;
     font-size: 0.85rem;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
 }
 
-/* Ottimizzazione Griglia Statistiche (DRY) */
-.stats-grid-cell:nth-child(3n+1) { font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-body); }
+.stats-grid-row:last-child .stats-grid-cell {
+    border-bottom: none;
+}
+
+.stats-grid-cell:nth-child(3n+1) { font-weight: 600; color: var(--text-body); }
 .stats-grid-cell:nth-child(3n+2) { font-weight: 500; color: var(--text-muted); }
 .stats-grid-cell:nth-child(3n+3) { flex-direction: column; gap: 4px; font-weight: 600; }
 
-
 .ev-bar {
     width: 100%;
-    height: 3px;
-    background: var(--border-light);
+    height: 4px;
+    background-color: var(--bg-card);
     border-radius: 2px;
     overflow: hidden;
 }
@@ -502,11 +447,11 @@ h1 {
     transition: width 0.3s ease;
 }
 
-/* Box Consigli (Nature/IV) */
 .recommendation-container {
     margin-top: 15px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 20px;
+    background-color: var(--bg-element);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
     padding: 15px 20px;
 }
 
@@ -515,7 +460,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .rec-row:last-child {
@@ -523,51 +468,48 @@ h1 {
 }
 
 .rec-label {
-    font-size: 0.7rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-transform: uppercase;
     color: var(--text-dim);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .rec-value {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-secondary);
+    color: var(--text-body);
 }
 
-/* Box Dove trovarli */
 .location-box {
     margin-top: 15px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    background-color: var(--bg-element);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
     padding: 12px;
     text-align: center;
-    font-family: var(--font-pixel);
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .location-box:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background-color: var(--bg-element-hover);
+    color: var(--text-main);
 }
 
-/* Modal per "Dove trovarli?" */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
-    display: none; /* Nascosto di default */
+    background-color: rgba(0, 0, 0, 0.85);
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: 2000;
@@ -581,8 +523,8 @@ h1 {
 }
 
 .modal-content {
-    background: rgba(30, 30, 30, 0.8);
-    border-radius: 25px;
+    background-color: var(--bg-card);
+    border-radius: 16px;
     padding: 30px 40px;
     width: 90%;
     max-width: 500px;
@@ -600,37 +542,35 @@ h1 {
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--text-dim);
     cursor: pointer;
     transition: color 0.2s ease;
 }
 
 .modal-close:hover {
-    color: #fff;
+    color: var(--text-main);
 }
 
 .modal-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--accent-color);
-    text-shadow: 0 0 5px var(--accent-glow-strong); /* Glow ridotto */
     margin-bottom: 20px;
     text-align: center;
 }
 
 .modal-body p {
     margin: 10px 0;
-    line-height: 1.7;
+    line-height: 1.6;
     color: var(--text-body);
-    border-left: 4px solid var(--accent-glow-strong);
+    font-size: 0.9rem;
+    border-left: 3px solid var(--accent-color);
     padding-left: 15px;
 }
 
-/* DRY nelle Modali del Gioco */
 .modal-body p[class] {
-    border-left: 4px solid var(--game-color, var(--accent-color));
-    padding-left: 15px;
+    border-left: 3px solid var(--game-color, var(--accent-color));
 }
 
 .emerald { --game-color: var(--color-emerald); }
@@ -638,23 +578,19 @@ h1 {
 .soulsilver { --game-color: var(--color-soulsilver); }
 
 .modal-body strong {
-    color: var(--text-muted);
-    font-weight: 800;
+    color: var(--text-main);
+    font-weight: 600;
     margin-right: 8px;
-    text-transform: uppercase;
-    font-size: 0.95rem;
 }
 
 .team-divider {
     width: 80%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    height: 1px;
+    background-color: var(--border-light);
     border: none;
     margin: 50px auto 10px;
-    opacity: 0.5;
 }
 
-/* --- FOOTER --- */
 .site-footer {
     width: 100%;
     text-align: center;
@@ -668,15 +604,13 @@ h1 {
 .site-footer a {
     color: var(--accent-color);
     text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .site-footer a:hover {
-    color: #fff;
-    text-shadow: 0 0 5px var(--accent-glow-strong);
+    color: var(--accent-hover);
 }
 
-/* --- UTILITY CLASSES --- */
 .card-wide {
     width: 100%;
     max-width: 800px;
@@ -691,17 +625,15 @@ h1 {
 .text-center { text-align: center; }
 .line-height-16 { line-height: 1.6; }
 
-/* --- TABELLE (Tutor Mosse) --- */
 .table-container {
     width: 100%;
     max-width: 900px;
     margin: 20px auto 40px;
-    background: var(--bg-card);
-    backdrop-filter: blur(10px);
+    background-color: var(--bg-card);
     border: 1px solid var(--border-light);
-    border-radius: 20px;
+    border-radius: 16px;
     overflow-x: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     padding: 20px;
 }
 
@@ -715,13 +647,13 @@ h1 {
 .custom-table th, .custom-table td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .custom-table th {
-    font-family: var(--font-pixel);
-    font-size: 0.65rem;
-    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -731,7 +663,7 @@ h1 {
 }
 
 .custom-table tr:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background-color: var(--bg-element);
 }
 
 .shard {
@@ -739,15 +671,14 @@ h1 {
     padding: 4px 8px;
     border-radius: 6px;
     font-size: 0.7rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 2px;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-.shard-red { background: #d32f2f; border: 1px solid #b71c1c; }
-.shard-blue { background: #1976d2; border: 1px solid #0d47a1; }
-.shard-green { background: #388e3c; border: 1px solid #1b5e20; }
-.shard-yellow { background: #fbc02d; color: #333; text-shadow: none; border: 1px solid #f57f17; }
+.shard-red { background-color: #c95c5c; }
+.shard-blue { background-color: #5c8fc9; }
+.shard-green { background-color: #65a865; }
+.shard-yellow { background-color: #c9b05c; color: #121212; }
