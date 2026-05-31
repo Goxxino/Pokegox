@@ -108,29 +108,41 @@ const drawChart = (elementId, data, color, nature) => {
 };
 
 // Render IV/EV statistics as HTML grid table
-const renderStatsTable = (containerId, { ivs, evs }, color) => {
+const renderStatsTable = (containerId, pokemon, color) => {
     const container = document.getElementById(containerId);
     if (!container) return; // Protezione per le altre pagine
     
+    const { ivs, evs, nature } = pokemon;
+    const natureData = NATURES[nature] || { up: null, down: null };
+
     const gridHTML = `
-        <div class="stats-grid">
-            <div class="stats-grid-header">
-                <div>STAT</div>
-                <div>IV</div>
-                <div>EV</div>
+        <div class="modern-stats-grid" style="background: rgba(255, 255, 255, 0.03); border-radius: 8px; padding: 12px; border: 1px solid rgba(255, 255, 255, 0.05); margin-top: 10px; font-size: 0.9em;">
+            <div style="display: flex; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-weight: bold; color: ${THEME.colorTextMuted}; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px;">
+                <div style="width: 50px;">Stat</div>
+                <div style="width: 40px; text-align: center;">IV</div>
+                <div style="flex-grow: 1; padding-left: 10px;">EV</div>
             </div>
-            ${STAT_LABELS.map((label, i) => `
-                <div class="stats-grid-row">
-                    <div class="stats-grid-cell label">${label}</div>
-                    <div class="stats-grid-cell iv">${ivs[i]}</div>
-                    <div class="stats-grid-cell ev" style="color: ${color}">
-                        <span>${evs[i]}</span>
-                        <div class="ev-bar">
-                            <div class="ev-bar-fill" style="width: ${(evs[i]/252)*100}%; background: ${color};"></div>
+            ${STAT_LABELS.map((label, i) => {
+                let statColor = THEME.colorNeutral;
+                if (i === natureData.up) statColor = THEME.colorUp;
+                else if (i === natureData.down) statColor = THEME.colorDown;
+                
+                const isPerfectIV = ivs[i] === 31;
+                const isZeroIV = ivs[i] === 0;
+                const ivColor = isPerfectIV ? '#4caf50' : (isZeroIV ? THEME.colorUp : 'inherit');
+                
+                return `
+                <div style="display: flex; align-items: center; padding: 4px 0;">
+                    <div style="width: 50px; color: ${statColor}; font-weight: bold;">${label}</div>
+                    <div style="width: 40px; text-align: center; font-family: monospace; font-size: 1.1em; color: ${ivColor}; font-weight: ${isPerfectIV ? 'bold' : 'normal'};">${ivs[i]}</div>
+                    <div style="flex-grow: 1; display: flex; align-items: center; padding-left: 10px; opacity: ${evs[i] === 0 ? '0.6' : '1'};">
+                        <span style="width: 32px; text-align: right; font-family: monospace; font-size: 1.1em; color: ${evs[i] > 0 ? color : 'inherit'}; font-weight: ${evs[i] > 0 ? 'bold' : 'normal'};">${evs[i]}</span>
+                        <div style="flex-grow: 1; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; margin-left: 10px; overflow: hidden;">
+                            <div style="width: ${Math.min((evs[i]/255)*100, 100)}%; background: ${color}; height: 100%; border-radius: 3px; transition: width 0.5s ease-out;"></div>
                         </div>
                     </div>
                 </div>
-            `).join('')}
+            `}).join('')}
         </div>
     `;
     
